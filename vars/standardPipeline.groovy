@@ -18,8 +18,8 @@ def call(Map config) {
 			build(config)
 			codeScan(config)
 			test(config)
-			publish()
-			deploy()
+			publish(config)
+			deploy(config)
 		}
 		if (branch.startsWith("rel") || branch.startsWith("master")) {
 			deploy()
