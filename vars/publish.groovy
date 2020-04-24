@@ -21,7 +21,7 @@ def executeBuildConfig(build_info) {
     build_info.eachWithIndex { it, i ->
         stage(it["name"]) {
             if(it["name"] == "docker" && it["image"].containsKey("name")){
-                echo ${it["image"]["name"]}
+                echo("docker name ${it["image"]["name"]}")
                 echo("Executing ${it["name"]}")
                 echo "end exec"
             }
