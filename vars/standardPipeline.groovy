@@ -15,15 +15,18 @@ def call(Map config) {
 		}
 		if (branch.startsWith("feature") || branch.startsWith("dev")) {
 			echo "inside master"
-			build(config)
-			codeScan(config)
-			test(config)
-			publish(config)
-			deploy(config)
+			build()
+			codeScan()
+			test()
+			publish()
+			deploy()
 		}
 		if (branch.startsWith("rel") || branch.startsWith("master")) {
 			echo "inside master"
-			deploy(config)
+			publish {
+				yamlConfig = "${config.publish_config}"
+			}
+
 		}
 	}catch (err) {
 		currentBuild.result = 'FAILED'
