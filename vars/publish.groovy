@@ -19,7 +19,6 @@ def call(body) {
 def executeBuildConfig(build_info) {
     def artifacts = []
     build_info.eachWithIndex { it, i ->
-        _validate(it)
         stage(it["name"]) {
             echo("Executing ${it["name"]}")
             echo "end exec"
