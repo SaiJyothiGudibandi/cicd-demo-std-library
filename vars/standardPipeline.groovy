@@ -12,16 +12,16 @@ def call(Map config) {
 				branch = env.BRANCH_NAME ? "${env.BRANCH_NAME}" : scm.branches[0].name
 				sh "echo ${branch}"
 			}
-			if (branch.startsWith("feature") || branch.startsWith("dev")) {
-				build()
-				codeScan()
-				test()
-				publish()
-				deploy()
-			}
-			if (branch.startsWith("rel") || branch.startsWith("master")) {
-				deploy()
-			}
+		}
+		if (branch.startsWith("feature") || branch.startsWith("dev")) {
+			build()
+			codeScan()
+			test()
+			publish()
+			deploy()
+		}
+		if (branch.startsWith("rel") || branch.startsWith("master")) {
+			deploy()
 		}
 	}catch (err) {
 		currentBuild.result = 'FAILED'
