@@ -12,7 +12,17 @@ def call(body) {
             } else {
                 build_info = readYaml file: yaml_file
             }
-        echo $build_info
-        echo "end publish"
+        executeBuildConfig(build_info)
+
+    }
+}
+def executeBuildConfig(build_info) {
+    def artifacts = []
+    build_info.eachWithIndex { it, i ->
+        _validate(it)
+        stage(it["name"]) {
+            echo("Executing ${it["name"]}")
+            echo "end exec"
+        }
     }
 }
