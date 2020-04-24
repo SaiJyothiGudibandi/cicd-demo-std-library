@@ -22,7 +22,7 @@ def call(Map config) {
 			deploy(config)
 		}
 		if (branch.startsWith("rel") || branch.startsWith("master")) {
-			sh "echo inside master'"
+			sh "echo 'inside master'"
 			deploy(config)
 		}
 	}catch (err) {
