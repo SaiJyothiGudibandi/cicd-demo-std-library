@@ -1,4 +1,5 @@
 def call(body){
+    body()
     node {
         stage('Test') {
             parallel 'static': {

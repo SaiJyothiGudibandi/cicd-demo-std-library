@@ -15,9 +15,9 @@ def call(Map config) {
 		}
 		if (branch.startsWith("feature") || branch.startsWith("dev")) {
 			sh "echo 'inside"
-			build()
-			codeScan()
-			test()
+			build(config)
+			codeScan(config)
+			test(config)
 			publish()
 			deploy()
 		}
