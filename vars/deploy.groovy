@@ -1,7 +1,7 @@
 def call(body){
     body()
     node {
-        stage(deploy) {
+        stage("Deploy") {
             sh "echo 'deploy stage"
         }
     }

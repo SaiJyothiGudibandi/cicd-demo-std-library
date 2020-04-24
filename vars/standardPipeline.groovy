@@ -14,7 +14,7 @@ def call(Map config) {
 			}
 		}
 		if (branch.startsWith("feature") || branch.startsWith("dev")) {
-			sh "echo 'inside"
+			sh "echo 'inside'"
 			build(config)
 			codeScan(config)
 			test(config)
@@ -22,7 +22,8 @@ def call(Map config) {
 			deploy(config)
 		}
 		if (branch.startsWith("rel") || branch.startsWith("master")) {
-			deploy()
+			sh "echo inside master'"
+			deploy(config)
 		}
 	}catch (err) {
 		currentBuild.result = 'FAILED'
