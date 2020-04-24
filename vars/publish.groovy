@@ -28,7 +28,7 @@ def executeBuildConfig(build_info) {
                     echo "Publish Docker image to ${docker_arti_url}"
                 }
             }
-            if(it["name"] == "helm" && it["chart"].containsKey("name") && it["chart"].containsKey("version") && it["chart"].containsKey("version")){
+            if(it["name"] == "helm" && it["chart"].containsKey("name") && it["chart"].containsKey("version") && it["artifactory"].containsKey("url")){
                 stage("Build-Helm-Chart") {
                     def helm_chart_name = it["chart"]["name"]
                     def helm_chart_version = it["chart"]["version"]
