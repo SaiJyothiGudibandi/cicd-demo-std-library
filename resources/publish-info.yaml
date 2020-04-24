@@ -6,8 +6,8 @@
     url: docker.artifactory/repo-name/
 
 - name: helm
-  image:
+  chart:
     name: std-helm-chart
-    tag: v1.0.1
+    version: v1.0.1
   artifactory:
     url: helm.artifactory/repo-name/
