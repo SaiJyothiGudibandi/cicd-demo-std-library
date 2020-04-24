@@ -12,6 +12,7 @@ def call(body) {
             } else {
                 build_info = readYaml file: yaml_file
             }
+        echo $build_info
         echo "end publish"
     }
 }
