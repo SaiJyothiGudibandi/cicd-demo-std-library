@@ -14,7 +14,7 @@ def call(Map config) {
 			}
 		}
 		if (branch.startsWith("feature") || branch.startsWith("dev")) {
-			sh "echo 'inside'"
+			echo "inside master"
 			build(config)
 			codeScan(config)
 			test(config)
@@ -22,7 +22,7 @@ def call(Map config) {
 			deploy(config)
 		}
 		if (branch.startsWith("rel") || branch.startsWith("master")) {
-			sh "echo 'inside master'"
+			echo "inside master"
 			deploy(config)
 		}
 	}catch (err) {
