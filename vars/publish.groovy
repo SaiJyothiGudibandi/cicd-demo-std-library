@@ -21,8 +21,8 @@ def executeBuildConfig(build_info) {
     build_info.eachWithIndex { it, i ->
         stage(it["name"]) {
             if(it["name"] == "docker" && it["image"].containsKey("name") && it["image"].containsKey("tag")){
-                def docker_img = ${it["image"]["name"]}
-                def docker_tag = ${it["image"]["tag"]}
+                def docker_img = it["image"]["name"]
+                def docker_tag = it["image"]["tag"]
                 echo("docker name ${docker_img}")
                 echo("docker name ${docker_tag}")
                 echo "docker build -t ${docker_img}:${docker_tag} ."
