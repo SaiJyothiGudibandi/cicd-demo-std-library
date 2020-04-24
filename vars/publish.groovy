@@ -13,7 +13,6 @@ def call(body) {
             build_info = readYaml file: yaml_file
         }
         executeBuildConfig(build_info)
-
     }
 }
 def executeBuildConfig(build_info) {
@@ -28,10 +27,8 @@ def executeBuildConfig(build_info) {
                     def docker_arti_url = it["artifactory"]["url"]
                     echo "Publish Docker image to ${docker_arti_url}"
                 }
-
-
             }
-            if(it["name"] == "helm" && it["chart"].containsKey("name") && it["image"].containsKey("version")){
+            if(it["name"] == "helm" && it["chart"].containsKey("name") && it["chart"].containsKey("version") && it["chart"].containsKey("version")){
                 stage("Build-Helm-Chart") {
                     def helm_chart_name = it["chart"]["name"]
                     def helm_chart_version = it["chart"]["version"]
