@@ -1,5 +1,7 @@
 def call(){
-    stage(publish) {
-        sh "echo 'publish stage"
+    node {
+        stage(publish) {
+            sh "echo 'publish stage"
+        }
     }
 }

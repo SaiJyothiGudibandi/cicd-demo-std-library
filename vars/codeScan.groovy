@@ -1,5 +1,7 @@
 def call(){
-    stage("Code-Scan") {
-        echo("Code Scan Stage")
+    node {
+        stage("Code-Scan") {
+            echo("Code Scan Stage")
+        }
     }
 }
