@@ -3,7 +3,7 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
     body()
-    def yaml_file = config.yamlScan
+    def yaml_file = config.yamlTest
     def code_info = []
     node {
         echo("YAML FILE ${yaml_file}")
@@ -12,8 +12,8 @@ def call(body) {
             exit 0
         } else {
             code_info = readYaml file: yaml_file
-            stage("Code-Scan") {
-                echo "Code Scan Stage"
+            stage("Code-Test") {
+                echo "Code test stage"
             }
         }
     }

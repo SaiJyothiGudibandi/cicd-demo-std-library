@@ -1,4 +1,0 @@
-- name: sonar-qube
-  source: "."
-  properties:
-    key: value
